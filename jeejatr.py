@@ -51,3 +51,48 @@ dict1={"a":1,"b":2}
 dict2={"b":99,"c":3}
 merged= dict1|dict2
 print(merged)
+
+## (a) program to find the factorial of a number
+a=int(input("Enter a number: "))
+if a<0:
+    print("avoid negative numbers")
+else:
+    f=1
+    for i in range(1,a+1):
+        f*=i
+    print(f)
+
+## (b) generate a fibanocci series of N terms
+
+N=int(input("Enter the number of terms: "))
+a,b=0,1
+
+for i in range(N):
+    print(a, end=" ")
+    a,b=b,a+b
+
+## (c) Find the sum of all items in a list
+
+a=[10,56,12,478,511]
+s=0
+for i in a:
+    s+=i
+print(s)
+
+## (d) generate a list of 4 digit numbers in a given range with all thier digits even and the number is a perfect square
+import math
+
+def even_digit_square_numbers(low, high):
+    result = []
+    start = math.isqrt(low)
+    end = math.isqrt(high)
+
+    for n in range(start, end + 1):
+        sq = n * n
+        if low <= sq <= high:
+            if all(int(ch) % 2 == 0 for ch in str(sq)):
+                result.append(sq)
+
+    return result
+
+print(even_digit_square_numbers(1000, 9999))
